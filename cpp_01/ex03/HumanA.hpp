@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:29:09 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/02/18 12:52:24 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/02/18 12:21:53 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/02/18 13:16:33 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_H
+#define HUMANA_H
 
-Zombie::~Zombie(void)
-{
-	std::cout << this->name;
-	std::cout << " just died.\n";
-}
+#include "Weapon.hpp"
 
-Zombie::Zombie( std::string name )
-{
-	setName(name);
-}
+class HumanA{
+	private:
+		Weapon w;
+		std::string n;
 
-void	Zombie::setName(std::string name)
-{
-	this->name = name;
-}
+	public:
+		HumanA	(std::string name, Weapon we);
+		~HumanA	(void);
+		void 	setName(std::string n);
+		void	setWeapon(std::string w);
+		std::string	getName(void)const;
+		void	attack(void)const;	
+};
 
-void	Zombie::announce( void ) const
-{
-	std::cout << this->name;
-	std::cout << ": BraiiiiiiinnnzzzZ...\n";
-}
+#endif

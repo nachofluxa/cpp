@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:29:09 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/02/18 12:52:24 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/02/18 12:36:03 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/02/18 13:20:03 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-Zombie::~Zombie(void)
+HumanA::HumanA(std::string name, Weapon we): w(we), n(name){}
+
+HumanA::~HumanA	(void){}
+
+void 	HumanA::setName(std::string n)
 {
-	std::cout << this->name;
-	std::cout << " just died.\n";
+	this->n = n;
 }
 
-Zombie::Zombie( std::string name )
+void	HumanA::setWeapon(std::string w)
 {
-	setName(name);
+	this->w = w;
 }
 
-void	Zombie::setName(std::string name)
+std::string	HumanA::getName(void)const
 {
-	this->name = name;
+	return this->n;
 }
 
-void	Zombie::announce( void ) const
+void	HumanA::attack(void)const
 {
-	std::cout << this->name;
-	std::cout << ": BraiiiiiiinnnzzzZ...\n";
+	std::cout << this->n << " attacks with his " << this->w.getType() << std::endl;
 }

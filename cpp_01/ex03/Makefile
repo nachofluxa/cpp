@@ -5,16 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/18 11:52:46 by nachofluxa        #+#    #+#              #
-#    Updated: 2025/02/18 11:53:49 by nachofluxa       ###   ########.fr        #
+#    Created: 2025/02/18 13:18:04 by nachofluxa        #+#    #+#              #
+#    Updated: 2025/02/18 13:19:19 by nachofluxa       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = exec
+NAME = WarExec
 
-CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address#-std=c++98 
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 
 SRCS = 	./main.cpp \
+		./Weapon.cpp \
+		./HumanA.cpp \
+		./HumanB.cpp 
+HEADERS = ./HumanA.hpp \
+		./HumanB.hpp \
+		./Weapon.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -25,7 +31,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

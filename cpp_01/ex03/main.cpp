@@ -5,26 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:53:35 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/02/18 12:51:11 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/02/18 13:07:31 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/02/18 13:23:10 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string.h>
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main( int argc, char **argv )
+int main(void)
 {
-	Zombie *macrohorde;
-
-	if ( argc != 2 )
-		std::cout << "Too many args.\n";
-	else
 	{
-		int i = std::stoi(argv[1]);
-		macrohorde = zombieHorde(i, "Zombie ");
-		for ( int x = 0; x < i; x++ )
-			macrohorde[x].announce();
-		delete [] macrohorde;
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
-	return (1);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim"), nacho("nacho");
+		jim.setWeapon(&club);
+		jim.attack();
+		nacho.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

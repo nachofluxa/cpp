@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 11:29:09 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/02/17 12:37:40 by ifluxa-c         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:48:00 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ Zombie::Zombie(){}
 
 Zombie::Zombie( std::string name )
 {
-    setName(name);
+	setName(name);
 }
 
 Zombie::~Zombie( void )
 {
-    cout << this->name;
-    cout << " just died.\n";
+	std::cout << this->name;
+	std::cout << " just died.\n";
 }
 
-void    Zombie::setName(std::string name)
+void	Zombie::setName(std::string name)
 {
-    this->name = name;
+	this->name = name;
 }
 
-void    Zombie::announce( void ) const
+void	Zombie::announce( void ) const
 {
-    cout << this->name;
-    cout << ": BraiiiiiiinnnzzzZ...\n";
+	std::cout << this->name;
+	std::cout << ": BraiiiiiiinnnzzzZ...\n";
 }

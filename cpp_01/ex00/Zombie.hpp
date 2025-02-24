@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 11:15:51 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/02/17 11:53:30 by ifluxa-c         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:54:55 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 class Zombie {
-    private:
-        string name;
-    
-    public:
-        Zombie(std::string name); //constructor
-        ~Zombie( void ); //destructor
-    
-        void    announce( void ) const;
-        void    setName(std::string name);
-        
+	private:
+		std::string name;
+	public:
+		Zombie(std::string name); //constructor
+		~Zombie(void); //destructor
+	
+		void	announce( void ) const;
+		void	setName(std::string name);
 };
 
-void    randomChump( std::string name );
-Zombie* newZombie( std::string name );
+void    randomChump(std::string name);
+Zombie* newZombie(std::string name);
 
 #endif

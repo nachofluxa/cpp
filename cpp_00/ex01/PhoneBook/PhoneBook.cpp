@@ -6,7 +6,7 @@
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:38:07 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/02/05 13:48:35 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/02/18 13:01:20 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static void	display_contact(Contact cont, int index)
 {
-	cout << index << ". ";
+	std::cout << index << ". ";
 	int i = 1;
 
 	while (i < 4)
 	{
-		string to_write = cont.get_contact_info(i);
+		std::string to_write = cont.get_contact_info(i);
 
 		if (to_write.length() <= 10)
-			cout << setw(10) << to_write;
+			std::cout << std::setw(10) << to_write;
 		else 
 		{
-			for (int j = 0; j < 9; ++j) cout << to_write[j];
-			cout << ".";
+			for (int j = 0; j < 9; ++j) std::cout << to_write[j];
+			std::cout << ".";
 		}
-		cout << "|" ;
+		std::cout << "|" ;
 		i++;
     }
-    cout << "\n";
+    std::cout << "\n";
 }
 
 int PhoneBook::search_contact(void)
@@ -43,37 +43,37 @@ int PhoneBook::search_contact(void)
 	i = -1;
 	if (this->num_contacts == 0)
 	{
-		cout << "\n**************************************\n";
-		cout << "* There are no contatcs in the list. *\n";
-		cout << "**************************************\n\n";
+		std::cout << "\n**************************************\n";
+		std::cout << "* There are no contatcs in the list. *\n";
+		std::cout << "**************************************\n\n";
 		return (1);
 	}
 	else
 	{
 		while (++i < this->num_contacts)
 			display_contact(this->list[i], i + 1);
-		cout << endl;
-		cout << "Write the index of the contact you want to know all the information about.\nWrite a 0 if you have not found the contact you are looking for.\n";
-		cin >> index;
-		cin.ignore();
+		std::cout << std::endl;
+		std::cout << "Write the index of the contact you want to know all the information about.\nWrite a 0 if you have not found the contact you are looking for.\n";
+		std::cin >> index;
+		std::cin.ignore();
 		if (index > num_contacts || index <= 0)
 		{
-			cout << "You entered an invalid number.\n";
+			std::cout << "You entered an invalid number.\n";
 			return (-1);
 		}
 		else
 		{
 			j = 0;
-			cout << "\nHERE IS THE CONTACT INFORMATION YOU ASKED ABOUT:\n";
+			std::cout << "\nHERE IS THE CONTACT INFORMATION YOU ASKED ABOUT:\n";
 			while (++j < 6)
-				cout << j << ". " << this->list[index - 1].get_contact_info(j) << "\n";
-			cout << "\n";
+				std::cout << j << ". " << this->list[index - 1].get_contact_info(j) << "\n";
+			std::cout << "\n";
 			return (1);
 		}
 	}
 }
 
-static bool check_number(string number)
+static bool check_number(std::string number)
 {
 	int i;
 	bool ok;
@@ -89,44 +89,44 @@ static bool check_number(string number)
 static Contact give_me_the_info(int num_contacts)
 {
 	Contact contact;
-	string aux;
+	std::string aux;
 
 	if (num_contacts == 0)
-		cout << "\nThere are 0 contacts on the list right now\n";
+		std::cout << "\nThere are 0 contacts on the list right now\n";
 	else if (num_contacts == 1)
-		cout << "\nThere is 1 contact on the list right now\n";
+		std::cout << "\nThere is 1 contact on the list right now\n";
 	else
-		cout << "\nThere are " << num_contacts << " contacts on the list right now\n";
-	cout << "LET'S GO ADD ANOTHER CONTACT TO YOUR PHONEBOOK!\n\nWrite the First Name: ";
-	getline(cin, aux);
+		std::cout << "\nThere are " << num_contacts << " contacts on the list right now\n";
+	std::cout << "LET'S GO ADD ANOTHER CONTACT TO YOUR PHONEBOOK!\n\nWrite the First Name: ";
+	std::getline(std::cin, aux);
 	contact.set_contact_info(1, aux);
-	cout << "Write the Second Name: ";
-	getline(cin, aux);
+	std::cout << "Write the Second Name: ";
+	std::getline(std::cin, aux);
 	contact.set_contact_info(2, aux);
-	cout << "Write the Nickname: ";
-	getline(cin, aux);
+	std::cout << "Write the Nickname: ";
+	std::getline(std::cin, aux);
 	contact.set_contact_info(3, aux);
-	cout << "Write the Phone Number: ";
-	getline(cin, aux);
+	std::cout << "Write the Phone Number: ";
+	std::getline(std::cin, aux);
 	if (check_number(aux)) contact.set_contact_info(5, aux);
 	else 
 	{
-		cout << "There is something wrong with the phone number, please try again.\nWrite the Phone Number: ";
-		getline(cin, aux);
+		std::cout << "There is something wrong with the phone number, please try again.\nWrite the Phone Number: ";
+		std::getline(std::cin, aux);
 		if (check_number(aux)) contact.set_contact_info(5, aux);
 		else 
 		{
-			cout << "There is again something wrong with the phone number.\n";
+			std::cout << "There is again something wrong with the phone number.\n";
 			exit(0);
 		}
 	}
-	cout << "Write the Darkest Secret: ";
-	getline(cin, aux);
+	std::cout << "Write the Darkest Secret: ";
+	std::getline(std::cin, aux);
 	contact.set_contact_info(4, aux);
 	system("clear");
-	cout << "\n*****************************************\n";
-	cout << "* Everything worked! PHONEBOOK UPDATED. *" << endl;
-	cout << "*****************************************\n\n";
+	std::cout << "\n*****************************************\n";
+	std::cout << "* Everything worked! PHONEBOOK UPDATED. *\n";
+	std::cout << "*****************************************\n\n";
 	return contact;
 }
 
@@ -147,11 +147,10 @@ void PhoneBook::add_contact(void)
 
 static int	manage_options(void)
 {
-	string aux;
+	std::string aux;
 
-	cout << "Write which of these 3 options you would like to handle (ADD, SEARCH, EXIT)";
-	cout << endl;
-	getline(cin, aux);
+	std::cout << "Write which of these 3 options you would like to handle (ADD, SEARCH, EXIT)\n";
+	std::getline(std::cin, aux);
 	if (aux == "ADD")
 		return  (1);
 	else if (aux == "SEARCH")
@@ -160,7 +159,7 @@ static int	manage_options(void)
 		return (3);
 	else
 	{
-		cout << "There is something wrong with the command you pick. Please try again.\n";
+		std::cout << "There is something wrong with the command you pick. Please try again.\n";
 		return manage_options();
 	}
 }
@@ -171,9 +170,9 @@ void PhoneBook::start_phoneB(void)
 	int	search;
 
 	system("clear");
-	cout << "************************************\n";
-	cout << "* Let's start with your new agenda *\n";
-	cout << "************************************\n";
+	std::cout << "************************************\n";
+	std::cout << "* Let's start with your new agenda *\n";
+	std::cout << "************************************\n";
 
 	option = manage_options();
 	while (1)
