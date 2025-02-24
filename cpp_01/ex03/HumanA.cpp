@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:36:03 by nachofluxa        #+#    #+#             */
-/*   Updated: 2025/02/18 13:20:03 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/02/24 12:03:45 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon we): w(we), n(name){}
+HumanA::HumanA(std::string name, Weapon &we): w(we), n(name){}
 
 HumanA::~HumanA	(void){}
 
