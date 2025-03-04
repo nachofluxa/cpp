@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 09:15:09 by nachofluxa        #+#    #+#             */
-/*   Updated: 2025/03/04 10:29:32 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/03/04 10:28:48 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/03/04 12:22:06 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
-#include <string>
 
-class Harl{
-		void	debug (void);
-		void	info (void);
-		void	warning (void);
-		void	error (void);
+class Fixed{
+		int					integer;
+		static const int	fractional = 8;
 	public:
-		Harl (void);
-		~Harl (void);
-		void	complain(std::string level);
+		Fixed(void);
+		Fixed(const Fixed &other);
+		Fixed &operator=(const Fixed &other);
+		~Fixed(void);
+		int		getRawBits(void)const;
+		void	setRawBits(int const raw);
 };
+
 
 
 #endif
