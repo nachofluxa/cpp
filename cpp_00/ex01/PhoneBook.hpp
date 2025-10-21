@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   source.cpp                                         :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 10:38:14 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/05/20 13:00:07 by ifluxa-c         ###   ########.fr       */
+/*   Created: 2025/01/20 11:03:18 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/05/20 13:54:36 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
+
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <iomanip>
 #include "Contact.hpp"
-#include "PhoneBook.hpp"
 
-int main(int argc, char **argv)
-{
-	PhoneBook phoneB;
+#define MAX_CONTACTS 8
 
-	(void)argv;
-	if (argc == 1)
-		phoneB.start_phoneB();
-	else
-		std::cout << "We just need the executable name.\n";
-	return (0);
-}
+class PhoneBook{
+	private:
+		Contact	list[MAX_CONTACTS];
+		int		num_contacts;
+
+	public:
+		PhoneBook() : num_contacts(0) {};
+		void start_phoneB(void);
+		void add_contact(void);
+		int search_contact(void);
+};
+
+#endif

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   source.cpp                                         :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 10:38:14 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/05/20 13:00:07 by ifluxa-c         ###   ########.fr       */
+/*   Created: 2025/01/20 11:03:31 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/05/19 11:08:44 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+#pragma once
+#ifndef CONTACT_H
+#define CONTACT_H
 
-int main(int argc, char **argv)
-{
-	PhoneBook phoneB;
+#include <iostream>
+#include <string.h>
 
-	(void)argv;
-	if (argc == 1)
-		phoneB.start_phoneB();
-	else
-		std::cout << "We just need the executable name.\n";
-	return (0);
-}
+class Contact{
+	private:
+		std::string first_name;
+		std::string last_name;
+		std::string nickname;
+		std::string secret;
+		std::string phone_number;
+
+	public:
+		void set_contact_info(int type, std::string info);
+		std::string get_contact_info(int type);
+};
+
+
+#endif

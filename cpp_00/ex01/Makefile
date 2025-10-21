@@ -2,8 +2,8 @@ NAME = phoneBookExec
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = 	./Contact/Contact.cpp \
-		./PhoneBook/PhoneBook.cpp \
+SRCS = 	Contact.cpp \
+		PhoneBook.cpp \
 		source.cpp
 
 HEADERS = ./Contact/Contact.h \
