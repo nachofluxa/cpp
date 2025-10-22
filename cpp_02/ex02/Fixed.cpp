@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:28:51 by nachofluxa        #+#    #+#             */
-/*   Updated: 2025/03/11 14:07:09 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/22 19:53:04 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,13 @@ Fixed	&Fixed::operator++(void)
 	return (*this);
 }
 
-Fixed	Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
-	Fixed f;
-	f.setRawBits(1 + this->getRawBits());
-	return f;
+	Fixed tmp(*this);
+	this->setRawBits(this->getRawBits() + 1);
+	return tmp;
 }
+
 
 Fixed	&Fixed::operator--(void)
 {
@@ -127,12 +128,13 @@ Fixed	&Fixed::operator--(void)
 	return (*this);
 }
 
-Fixed	Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-	Fixed f;
-	f.setRawBits(this->getRawBits() - 1);
-	return f;
+	Fixed tmp(*this);
+	this->setRawBits(this->getRawBits() - 1);
+	return tmp;
 }
+
 
 Fixed &Fixed::min(Fixed &f1, Fixed &f2)
 { 
