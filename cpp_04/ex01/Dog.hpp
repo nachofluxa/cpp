@@ -1,55 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 16:39:56 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 20:40:20 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/10/24 16:38:41 by ifluxa-c          #+#    #+#             */
+/*   Updated: 2025/10/26 00:23:17 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat : public Animal{
+class Dog : public Animal {
 
 	public:
 
-		Cat(void);
-		Cat(std::string name);
-		Cat(Cat const &other);
-		virtual ~Cat(void);
+		Dog(void);
+		Dog(std::string name);
+		Dog(Dog const &other);
+		virtual ~Dog(void);
+
+		Dog&	operator= (Dog const &other);
 
 		std::string		getName(void) const;
 		void			setName(std::string name);
 
 		virtual void 	makeSound(void) const;
+	
+	private:
 
-		Cat&	operator=(Cat const &other);
+		Brain*	brain;
 };
-
-class WrongCat : public WrongAnimal{
-
-	public:
-
-		WrongCat(void);
-		WrongCat(std::string name);
-		WrongCat(WrongCat const &other);
-		~WrongCat(void);
-
-		std::string		getName(void) const;
-		void			setName(std::string name);
-
-		void 	makeSound(void) const;
-
-		WrongCat&	operator=(WrongCat const &other);
-};
-
-
-
 
 #endif

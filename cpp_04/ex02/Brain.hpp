@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 16:38:41 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 20:40:25 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/10/25 20:14:01 by nachofluxa        #+#    #+#             */
+/*   Updated: 2025/10/25 20:42:44 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Dog : public Animal {
+class Brain {
 
 	public:
 
-		Dog(void);
-		Dog(std::string name);
-		Dog(Dog const &other);
-		virtual ~Dog(void);
+		Brain(void);
+		Brain(Brain const &other );
+		~Brain(void);
 
-		Dog&	operator= (Dog const &other);
+		std::string	getIdea(int index) const;
+		void		setIdea(int index, std::string idea);
 
-		std::string		getName(void) const;
-		void			setName(std::string name);
+		Brain&	operator=(Brain const &other );
 
-		virtual void 	makeSound(void) const;
+	protected:
+
+		std::string	ideas[100];
+
 };
-
 
 
 

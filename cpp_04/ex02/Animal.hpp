@@ -6,7 +6,7 @@
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:39:18 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 20:40:13 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/26 00:41:07 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal{
 		Animal(Animal const &other);
 		virtual ~Animal(void);
 		
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 
 		std::string	getType(void) const;
 		void		setType(std::string type);
@@ -34,27 +34,5 @@ class Animal{
 	protected :
 		std::string type;
 };
-
-class WrongAnimal {
-
-	public:
-		WrongAnimal(void);
-		WrongAnimal(std::string name);
-		WrongAnimal(const WrongAnimal& other);
-		~WrongAnimal(void);
-
-		void makeSound(void) const;
-		
-		std::string	getType(void) const;
-		void		setType(std::string type);
-		
-		WrongAnimal& operator=(const WrongAnimal& other);
-
-	protected:
-		std::string type;
-};
-
-
-
 
 #endif

@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 16:38:41 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 20:40:25 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/10/24 16:36:16 by ifluxa-c          #+#    #+#             */
+/*   Updated: 2025/10/26 00:46:07 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
+#include "Dog.hpp"
+#include "Cat.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
+#include <iostream>
 
-class Dog : public Animal {
-
-	public:
-
-		Dog(void);
-		Dog(std::string name);
-		Dog(Dog const &other);
-		virtual ~Dog(void);
-
-		Dog&	operator= (Dog const &other);
-
-		std::string		getName(void) const;
-		void			setName(std::string name);
-
-		virtual void 	makeSound(void) const;
-};
-
-
-
-
-#endif
+int main()
+{
+	const Animal* a = new Dog;
+	const Animal* b = new Cat;
+	
+	delete a;
+	delete b;
+	system("leaks Abstract");
+}

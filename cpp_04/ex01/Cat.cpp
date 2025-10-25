@@ -6,7 +6,7 @@
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:39:34 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 20:12:15 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/25 20:37:05 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 //CAT CLASS
 
-Cat::Cat(void) : Animal("Cat")
+Cat::Cat(void) : Animal("Cat"), brain(new Brain)
 {
 	std::cout << this->getName() << " default constructor called." << std::endl;
 }
 
-Cat::Cat(std::string name) : Animal(name)
+Cat::Cat(std::string name) : Animal(name), brain(new Brain)
 {
 	std::cout << this->getName() << " constructor called." << std::endl;
 }
 
-Cat::Cat(Cat const &other) : Animal(other.getName())
+Cat::Cat(Cat const &other) : Animal(other.getName()), brain(new Brain)
 {
 	std::cout << this->getName() << " copy constructor called." << std::endl;
+	for (int i=0; i < 100; i++)
+		brain->setIdea(i, other.brain->getIdea(i));	
 }
 
 Cat::~Cat(void)
 {
+	delete this->brain;
 	std::cout << this->getName() << " destructor called." << std::endl;
 }
 
@@ -51,49 +54,14 @@ void 	Cat::makeSound(void) const
 
 Cat&	Cat::operator=(Cat const &other)
 {
-	this->setName(other.getName());
-	return *this;
-}
+	if (&other != this){
+		delete this->brain;
 
-//WRONG CAT CLASS
-
-WrongCat::WrongCat (void) : WrongAnimal("Unkown Wrong Animal")
-{
-	std::cout << this->getType() << " default constructor called." << std::endl;
-}
-
-WrongCat::WrongCat (std::string name) : WrongAnimal(name)
-{
-	std::cout << "Wrong Animal " << this->getType() << " constructor called." << std::endl;
-}
-
-WrongCat::WrongCat (WrongCat const &other) : WrongAnimal(other.getType())
-{
-	std::cout << "Wrong Animal " << this->getType() << " copy constructor called." << std::endl;
-}
-
-WrongCat::~WrongCat (void)
-{
-	std::cout << "Wrong Animal " <<  this->getType() << " destructor called" << std::endl;
-}
-
-void	WrongCat::makeSound(void) const
-{
-	std::cout << "Wrong Animal " << this->getType() << " makes an unkonwn noise." << std::endl;
-}
-
-std::string	WrongCat::getName(void) const
-{
-	return this->type;
-}
-
-void		WrongCat::setName(std::string type)
-{
-	this->type = type;
-}
-
-WrongCat& WrongCat::operator=(WrongCat const &other)
-{
-	this->setType(other.getType());
+		Brain*	newCatBrain = new Brain;
+		for (int i=0; i < 100; i++)
+			newCatBrain->setIdea( i, other.brain->getIdea(i) );
+		this->type = other.getType();
+		this->brain = newCatBrain;
+	}
 	return *this;
 }

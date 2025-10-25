@@ -6,7 +6,7 @@
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:47 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 19:33:37 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/25 20:31:40 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,49 +50,6 @@ void		Animal::setType(std::string type)
 }
 
 Animal& Animal::operator=(Animal const &other)
-{
-	this->setType(other.getType());
-	return *this;
-}
-
-//WRONG ANIMAL CLASS
-
-WrongAnimal::WrongAnimal (void) : type("Unkown Wrong Animal")
-{
-	std::cout << this->getType() << " default constructor called." << std::endl;
-}
-
-WrongAnimal::WrongAnimal (std::string name) : type(name)
-{
-	std::cout << "Wrong Animal " << this->getType() << " constructor called." << std::endl;
-}
-
-WrongAnimal::WrongAnimal (WrongAnimal const &other) : type(other.getType())
-{
-	std::cout << "Wrong Animal " << this->getType() << " copy constructor called." << std::endl;
-}
-
-WrongAnimal::~WrongAnimal (void)
-{
-	std::cout << "Wrong Animal " <<  this->getType() << " destructor called" << std::endl;
-}
-
-void	WrongAnimal::makeSound(void) const
-{
-	std::cout << "Wrong Animal " << this->getType() << " makes an unkonwn noise." << std::endl;
-}
-
-std::string	WrongAnimal::getType(void) const
-{
-	return this->type;
-}
-
-void		WrongAnimal::setType(std::string type)
-{
-	this->type = type;
-}
-
-WrongAnimal& WrongAnimal::operator=(WrongAnimal const &other)
 {
 	this->setType(other.getType());
 	return *this;

@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 16:38:41 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 20:40:25 by nachofluxa       ###   ########.fr       */
+/*   Created: 2025/10/24 16:36:16 by ifluxa-c          #+#    #+#             */
+/*   Updated: 2025/10/26 00:24:09 by nachofluxa       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
+#include "Dog.hpp"
+#include "Cat.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
+#include <iostream>
 
-class Dog : public Animal {
+void	leaks_check( void ) {
 
-	public:
+	system("leaks Animals_test");
+}
 
-		Dog(void);
-		Dog(std::string name);
-		Dog(Dog const &other);
-		virtual ~Dog(void);
+int main()
+{
+	atexit(leaks_check);
+	const Animal* i = new Cat();
+	const Animal* j = new Dog();
 
-		Dog&	operator= (Dog const &other);
+	Dog k;
+	Dog l( k );
+	Cat m;
+	Cat n( m );
 
-		std::string		getName(void) const;
-		void			setName(std::string name);
+	m = n;
+	l = k;
 
-		virtual void 	makeSound(void) const;
-};
-
-
-
-
-#endif
+	delete j;
+	system("leaks Animals_test2");
+	delete i;
+	system("leaks Animals_test2");
+	return 0;
+}

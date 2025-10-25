@@ -6,7 +6,7 @@
 #    By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 16:36:34 by ifluxa-c          #+#    #+#              #
-#    Updated: 2025/10/24 17:42:51 by nachofluxa       ###   ########.fr        #
+#    Updated: 2025/10/25 20:16:30 by nachofluxa       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,13 @@ CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98
 SRCS =  ./main.cpp \
 		./Animal.cpp \
 		./Dog.cpp \
-		./Cat.cpp
+		./Cat.cpp \
+		./Brain.cpp
 
 HEADERS = /Animal.hpp \
 		./Dog.hpp \
-		./Cat.hpp
+		./Cat.hpp \
+		./Brain.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
