@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:36:16 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/26 00:24:09 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/26 12:10:51 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #include "Cat.hpp"
 #include "Animal.hpp"
 #include "Brain.hpp"
+#include <stdlib.h>
 #include <iostream>
 
-void	leaks_check( void ) {
-
-	system("leaks Animals_test");
+void	leaks_check( void )
+{
+	system("leaks AnimalExec");
 }
 
 int main()

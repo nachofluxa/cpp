@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:47 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 19:33:37 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/26 12:13:59 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Animal::Animal (Animal const &other) : type(other.getType())
 
 Animal::~Animal (void)
 {
-	std::cout << this->getType() << " destructor called" << std::endl;
+	std::cout << this->getType() << " destructor called." << std::endl;
 }
 
 void	Animal::makeSound(void) const

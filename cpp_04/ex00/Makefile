@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+         #
+#    By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 16:36:34 by ifluxa-c          #+#    #+#              #
-#    Updated: 2025/10/24 17:42:51 by nachofluxa       ###   ########.fr        #
+#    Updated: 2025/10/26 12:09:41 by ifluxa-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = AnimalExec
 
-CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98 
+CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98
 
 SRCS =  ./main.cpp \
 		./Animal.cpp \

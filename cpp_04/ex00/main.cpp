@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ifluxa-c <ifluxa-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:36:16 by ifluxa-c          #+#    #+#             */
-/*   Updated: 2025/10/25 19:35:01 by nachofluxa       ###   ########.fr       */
+/*   Updated: 2025/10/26 12:12:57 by ifluxa-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Animal.hpp"
+#include <stdlib.h>
 #include <iostream>
 
 int main(void)
@@ -27,5 +28,9 @@ int main(void)
 	j->makeSound();
 	meta->makeSound();
 
+	delete meta;
+	delete j;
+	delete i;
+	
 	return 0;
 }
