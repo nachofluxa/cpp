@@ -1,51 +1,76 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nachofluxa <nachofluxa@student.42.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/03 19:27:52 by nachofluxa        #+#    #+#             */
-/*   Updated: 2026/05/02 11:41:40 by nachofluxa       ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <iostream>
 
 int main()
 {
-	Bureaucrat b1("Juan", 42);
-	std::cout << b1 << std::endl;
-
-	b1.incrementGrade();
-	std::cout << "Después de incrementar: " << b1 << std::endl;
-
-	b1.decrementGrade();
-	std::cout << "Después de reducir: " << b1 << std::endl;
-
-	std::cout << "---------------------" << std::endl;
-
+	std::cout << "===== TEST 1: Formulario válido =====" << std::endl;
 	try
 	{
-		Bureaucrat b2( "Pedro", 1);
-		std::cout << b2 << std::endl;
-		b2.incrementGrade();
+		Form f("Contrato", 50, 25);
+		std::cout << f << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Error: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "---------------------" << std::endl;
-
+	std::cout << "\n===== TEST 2: Grado demasiado alto =====" << std::endl;
 	try
 	{
-		Bureaucrat b3("Luis", 200);
+		Form f("TopSecret", 0, 10);
+		std::cout << f << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Error al crear: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 3: Grado demasiado bajo =====" << std::endl;
+	try
+	{
+		Form f("Basura", 151, 150);
+		std::cout << f << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 4: Firma correcta =====" << std::endl;
+	try
+	{
+		Bureaucrat jefe("Jefe", 10);
+		Form permiso("Permiso", 20, 20);
+
+		std::cout << permiso << std::endl;
+
+		permiso.beSigned(jefe);
+
+		std::cout << permiso << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 5: Firma fallida =====" << std::endl;
+	try
+	{
+		Bureaucrat becario("Becario", 100);
+		Form secreto("Documento Secreto", 50, 50);
+
+		std::cout << secreto << std::endl;
+
+		secreto.beSigned(becario);
+
+		std::cout << secreto << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Excepción capturada: " << e.what() << std::endl;
 	}
 
 	return 0;
-} 
+}
