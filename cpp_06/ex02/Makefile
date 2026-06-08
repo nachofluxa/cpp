@@ -1,8 +1,8 @@
-NAME = convert
+NAME = test
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = ScalarConverter.cpp \
+SRCS = Base.cpp \
 		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

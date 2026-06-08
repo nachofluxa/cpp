@@ -6,20 +6,14 @@
 
 class ScalarConverter{
 
-	private :
-
-		std::string _toConvert;
-
-	public:
-
+	private:
 		ScalarConverter();
-		ScalarConverter(const std::string parameter);
 		ScalarConverter(const ScalarConverter &other);
+		ScalarConverter &operator=(const ScalarConverter &aux);
 		~ScalarConverter();
 
-		static void	*convert();
-
+	public:
+		static void convert(const std::string &literal);
 };
-
 
 #endif
