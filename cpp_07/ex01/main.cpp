@@ -13,6 +13,7 @@ void increment(int &x) { x++; }
 
 int main()
 {
+	const int carr[] = {11, 22, 33, 44, 55};
 	int arr[] = {1, 2, 3, 4, 5};
 
 	std::cout << "Original: ";
@@ -25,8 +26,14 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << "Const print: ";
-	iter(arr, 5, printIntConst);
+	iter(carr, 5, printIntConst);
 	std::cout << std::endl;
+
+	//-> Check array const
+	// iter(carr, 5, increment);
+	// std::cout << "Incremented: ";
+	// iter(carr, 5, print<int>);
+	// std::cout << std::endl;
 
 	std::cout << "Template print: ";
 	iter(arr, 5, print<int>);
